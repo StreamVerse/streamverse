@@ -3,31 +3,31 @@ body{
 }
 
 /*menu bar*/
-#content {
+#content{
     position: relative;
     margin: 0 auto;
     width: 850px;
     top: 50px;
     height: 100px;
-    font-family:"Euphemia", Times, serif;
+    font-family:"Euphemia";
 }
 
-#menuBar {
+#menuBar{
     list-style: none; 
     margin: 0; 
     padding: 0;
     font-size: 1.2em;
     float: right;
-    position: relative
-}
-
-#menuBar li {
-    float: left; 
     position: relative;
 }
 
-#menuBar li a
-{
+#menuBar li{
+    float: left; 
+    position: relative;
+    padding: 13.5px;
+}
+
+#menuBar li a{
     float: left;
     display: block;
     padding: 10px;
@@ -38,8 +38,7 @@ body{
 }
 
 /*css for hover*/
-#menuBar li a:hover
-{
+#menuBar li a:hover{
     background: #999;
     color: #fff;    
 }
@@ -139,4 +138,12 @@ li.streamer_name:active{
     margin:0;
     padding:0;
     
+}
+
+#footer{
+    float: right; 
+    width:730px;
+    margin:0px 0 0px 0;
+    font-size: 14px; 
+    font-family:"Euphemia";
 }
