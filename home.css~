@@ -137,7 +137,6 @@ li.streamer_name:active{
 *{
     margin:0;
     padding:0;
-    margin-left:0;
     
 }
 
