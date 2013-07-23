@@ -3,56 +3,52 @@ body{
 }
 
 /*menu bar*/
-#menuBar{
-	width:1000px;
-	height:40px;
-    background: #000;
-    text-align: justify;
-    -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
-    min-width: 600px; /* just for demo */
-
-	/*center align*/
-	margin-left: auto ;
-    margin-right: auto ;
-    margin-top:10px;
-    background-color: white;
-
-	border:  1px solid #A8A8A8 ;
-
-}
-/*Menu items*/
-.menuitem {
-    width: auto;
-    height: 40px;
-    vertical-align: top;
-    display: inline-block;
-    *display: inline;
-    zoom: 2;
-    color: black;
-    font-weight:bold;
-
-    /*center align*/
-    align:center;
- }
-
- .menuitem:hover{
- 	color: gray;
- }
-
-.stretcher {
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0;
+#content {
+    position: relative;
+    margin: 0 auto;
+    width: 850px;
+    top: 50px;
+    height: 100px;
+    font-family:"Euphemia", Times, serif;
 }
 
+#menuBar {
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+    font-size: 1.2em;
+    float: right;
+    position: relative
+}
+
+#menuBar li {
+    float: left; 
+    position: relative;
+}
+
+#menuBar li a
+{
+    float: left;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #666;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+/*css for hover*/
+#menuBar li a:hover
+{
+    background: #999;
+    color: #fff;    
+}
 
 
 
 /*background for content*/
 #wrapper{
-	width:1000px;
+	width:950px;
 	height:700px;
 	margin-top: 10px;
     position:relative;
@@ -115,8 +111,6 @@ body{
     font-size: 18px;
     display:block;
     border-bottom:1px solid black;
-
-
 
 }
 
