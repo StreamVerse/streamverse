@@ -4,12 +4,65 @@
       <title>Gaming Streams!</title>
       <link href="home.css" rel="stylesheet" type="text/css">
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-      <script type="test/javascript"> function getStreamListInfo(streamPlayerList){
-         $.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + streamPlayerList + "&jsonp=?", function(data){
-         for(var i=0;i<data.length;i++){
-         	$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
-         	}
+      <script type="text/javascript">
+
+      	 /*====================== Streamer List ==========================*/
+         var wowList = "liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames";
+         var dota2List = "";
+         var sc2List = "";
+         var lolList = "";
+         /*========================== Functions ==========================*/
+         /*Function retrieves json object from the players currently live streaming and displays on playerList.*/
+         function getStreamList(streamPlayerList){         	
+           	$(".streamer_name").remove();
+         	$.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + streamPlayerList + "&jsonp=?", function(data){
+         	for(var i=0;i<data.length;i++){
+         	$(".streamList").append('<li id="' + data[i].channel.login + '"" class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+         		}
+         	});
+         }
+         /*========================== Functions End =========================*/
+         
+         /*Menu bar click events*/
+         $(document).ready(function(){
+         	$(".wow").click(function(){
+            	getStreamList(wowList);
+         	});
+            $(".dota2").click(function(){
+                getStreamList(dota2List);
+         	});
+         	$(".sc2").click(function(){
+                getStreamList(sc2List);
+         	});
+         	$(".lol").click(function(){
+                getStreamList(lolList);
+         	});
+         	
+
+         	$( ".streamList").click(function(evt){
+			  var clicked = evt.target;
+			  var currentID = clicked.id || "No ID!";
+			  if(currentID!="No ID!"){
+			  	$("#streamWrapper").empty();
+			  	$("#streamWrapper").append('<br><h1 align="center">' + currentID + '</h1>');
+
+			  	
+			  	var frame = document.getElementsbyTag("iframe");
+				
+				var src = "http://twitch.tv/chat/embed?channel=" + currentID + "&amp;popout_chat=true";
+
+				var iframe = $('iframe');
+
+ 				$(iframe).attr('src', src)
+
+			  	$("#chatboxWrapper".append('<iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=' + currentID + '&amp;popout_chat=true" height="698" width="300"></iframe>'));
+
+
+
+			  }
+			})
          });
+                  
       </script>
    </head>
    <body>
@@ -25,44 +78,14 @@
       </div>
       <div id="wrapper">
          <div id="playerListWrapper">
-            <ul class="test">
+            <ul class="streamList">
                <li class="catagory">  STREAMS</li>
-               <script type="text/javascript">
-                  $(document).ready(function(){
-                  		$(".wow").click(function(){
-                  			$(".streamer_name").remove();
-                  			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=xaryulol,Bajheera,Gamebreakertv,Swifty&jsonp=?", function(data){
-                  			for(var i=0;i<data.length;i++){
-                  				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
-                  				}
-                  			});
-                  		
-                  		});
-                  
-                  		$(".dota2").click(function(){
-                  			$(".streamer_name").remove();
-                  			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames&jsonp=?", function(data){
-                  			for(var i=0;i<data.length;i++){
-                  				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
-                  				}
-                  			});
-                  		
-                  		});
-                  	});
-               </script>
             </ul>
          </div>
          <div id="streamWrapper">
             <br>
             <h1 align="center">BeyondtheSummit</h1>
-            <object id = "streamplayer" type="application/x-shockwave-flash" height="400px" width="680px" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=wcs_america" bgcolor="#000000">
-               <param name="allowFullScreen" value="true" />
-               <param name="allowScriptAccess" value="always" />
-               <param name="allowNetworking" value="all" />
-               <param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" />
-               <param name="flashvars" value="hostname=www.twitch.tv&channel=wcs_america&auto_play=true&start_volume=25" />
-            </object>
-            <br>
+            
          </div>
          <div id="chatboxWrapper">
             <iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=wagamamatv&amp;popout_chat=true" height="698" width="300"></iframe>
