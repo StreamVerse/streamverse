@@ -4,11 +4,11 @@ body{
 
 
 #banner{ 
-
-height: 130px; 
-position: relative; 
-margin-left: 780px;
-margin-top: 35px;
+display:block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: -60px;
+margin-top: 15px;
 
 }
 
@@ -52,6 +52,7 @@ margin-top: 35px;
 #menuBar li a:hover{
     background: #999;
     color: #fff;    
+    cursor:pointer;
 }
 
 
@@ -59,7 +60,7 @@ margin-top: 35px;
 /*background for content*/
 #wrapper{
 	width:950px;
-	height:700px;
+	height:900px;
 	margin-top: 10px;
     position:relative;
 	background-color: white;
@@ -72,6 +73,17 @@ margin-top: 35px;
 
 }
 
+#streamplayer{
+	margin-top:35px;
+	margin-left:10px;
+	
+}
+
+#chatbox{
+	margin-top:2px;
+	margin-left:10px;
+}
+
 #videoStream{
 	margin-top:10%;
 	margin-left: auto ;
@@ -80,10 +92,12 @@ margin-top: 35px;
 	width:620px;
 }
 
+
+
 #playerList{
     background-color:#303030;
     float:left;
-    height:700px;
+    height:900px;
     width:200px;
 
 }
@@ -106,28 +120,30 @@ margin-top: 35px;
     font-size:15px;
     color:#C0C0C0   ;
     height:30px;
-    width:200px;
+    width:250px;
     border-bottom:1px solid black;
     font-weight: bold;
     text-indent: 1em;
     display: table-cell; 
     vertical-align: middle; 
+    font-family: "Euphemia";
 
 }
 /*Streamer's name*/
 #playerList li.streamer_name{
-    height:42px;
+    height:48px;
     color:#D0D0D0  ;
-    font-size: 18px;
+    font-size: 15px;
     display:block;
     border-bottom:1px solid black;
+    font-family: "Euphemia";
 
 }
 
 
 
 #playerList img{
-    margin:2px 2px 2px 2px;
+    margin:5px 2px 2px 2px;
     vertical-align:middle;
     float:left;
     height:36px;
@@ -150,6 +166,10 @@ li.streamer_name:active{
     padding:0;
     margin-left:0;
     
+}
+
+#testing{
+    background-color: red;
 }
 
 #footer{

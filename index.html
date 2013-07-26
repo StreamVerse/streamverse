@@ -3,21 +3,30 @@
 <head>
 	<title>Gaming Streams!</title>
 	<link href="home.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="test/javascript"> function getStreamListInfo(streamPlayerList){
+			 			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + streamPlayerList + "&jsonp=?", function(data){
+			 			for(var i=0;i<data.length;i++){
+			 				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+			 				}
+			 			});
+	</script>
 </head>
 
 <body>
 
-<a href="index.html">
-<img src="logo.jpg" id="banner"></a>
+<a href="index.html"><img src="logo.png" id="banner"></a>
 
 <!--Menu Bar-->
 
 <div id="content">
   <ul id="menuBar">
-    <li class=""> <a href="">World of Warcraft</a></li>
-    <li class=""> <a href="">Dota 2</a></li>
-    <li class=""> <a href="">Starcraft 2</a></li>
-    <li class=""> <a href="">League of Legends</a></li>
+    <li> <a class="wow">World of Warcraft</a></li>
+    <li> <a class="dota2">Dota 2</a></li>
+    <li> <a class="sc2">Starcraft 2</a></li>
+    <li> <a class="lol">League of Legends</a></li>
+
+
    </ul>
   </div>
 
@@ -25,46 +34,47 @@
 
 	<div id="wrapper">
 		<div id="playerList">
-			<ul>
+			<ul class="test">
 
 				<li class="catagory">  STREAMS</li>
 
-				<?php
-					$stream_list = "liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames"; 
-					$mycurl = curl_init();
-
-					curl_setopt ($mycurl, CURLOPT_HEADER, 0);
-					curl_setopt ($mycurl, CURLOPT_RETURNTRANSFER, 1); 
-
-					//Build the URL 
-					$url = "http://api.justin.tv/api/stream/list.json?channel=" . $stream_list; 
-					curl_setopt ($mycurl, CURLOPT_URL, $url);
-
-					$web_response =  curl_exec($mycurl); 
-
-					$results = json_decode($web_response); 
-
-
-
-					foreach($results as $s) {
-					 echo "<li class=\"streamer_name\" >" . "<img id=\"small_img\" src=\""  . $s->channel->image_url_small . "\">" 
-					 	. $s->channel->login . "<br/>" 
-					 	. $s->channel_count . "</li>";
-
-					}
-
-				?>
-
-
+				<script type="text/javascript">
 				
+				$(document).ready(function(){
+			 		$(".wow").click(function(){
+			 			$(".streamer_name").remove();
+			 			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=xaryulol,Bajheera,Gamebreakertv,Swifty&jsonp=?", function(data){
+			 			for(var i=0;i<data.length;i++){
+			 				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+			 				}
+			 			});
+			 		
+			 		});
 
+			 		$(".dota2").click(function(){
+			 			$(".streamer_name").remove();
+			 			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames&jsonp=?", function(data){
+			 			for(var i=0;i<data.length;i++){
+			 				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+			 				}
+			 			});
+			 		
+			 		});
+			 	});
+			</script>
+				
 			</ul>
 
 		</div>
 			<div id="stream_player">
-				<?php
-					echo "hi";
-				?>
+				<br>
+				
+				<h1 align="center">BeyondtheSummit</h1>
+
+				<object id = "streamplayer" type="application/x-shockwave-flash" height="400px" width="730px" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=wcs_america" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=wcs_america&auto_play=true&start_volume=25" /></object>
+				<br>
+				<iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=wagamamatv&amp;popout_chat=true" height="310" width="730"></iframe>
+				
 			</div>
 
 		</div>
@@ -72,8 +82,7 @@
 	    
 <!--Footer-->
 <div id="footer">
-       &copy; 2013 StreamVerse 
-</div> 
+	Copyright &copy; 2013, streamverse.tv - Dota 2 Copyright &copy;, Valve</div> 
 
 </html>
 
