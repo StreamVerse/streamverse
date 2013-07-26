@@ -1,88 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Gaming Streams!</title>
-	<link href="home.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script type="test/javascript"> function getStreamListInfo(streamPlayerList){
-			 			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + streamPlayerList + "&jsonp=?", function(data){
-			 			for(var i=0;i<data.length;i++){
-			 				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
-			 				}
-			 			});
-	</script>
-</head>
-
-<body>
-
-<a href="index.html"><img src="logo.png" id="banner"></a>
-
-<!--Menu Bar-->
-
-<div id="content">
-  <ul id="menuBar">
-    <li> <a class="wow">World of Warcraft</a></li>
-    <li> <a class="dota2">Dota 2</a></li>
-    <li> <a class="sc2">Starcraft 2</a></li>
-    <li> <a class="lol">League of Legends</a></li>
-
-
-   </ul>
-  </div>
-
-
-
-	<div id="wrapper">
-		<div id="playerList">
-			<ul class="test">
-
-				<li class="catagory">  STREAMS</li>
-
-				<script type="text/javascript">
-				
-				$(document).ready(function(){
-			 		$(".wow").click(function(){
-			 			$(".streamer_name").remove();
-			 			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=xaryulol,Bajheera,Gamebreakertv,Swifty&jsonp=?", function(data){
-			 			for(var i=0;i<data.length;i++){
-			 				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
-			 				}
-			 			});
-			 		
-			 		});
-
-			 		$(".dota2").click(function(){
-			 			$(".streamer_name").remove();
-			 			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames&jsonp=?", function(data){
-			 			for(var i=0;i<data.length;i++){
-			 				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
-			 				}
-			 			});
-			 		
-			 		});
-			 	});
-			</script>
-				
-			</ul>
-
-		</div>
-			<div id="stream_player">
-				<br>
-				
-				<h1 align="center">BeyondtheSummit</h1>
-
-				<object id = "streamplayer" type="application/x-shockwave-flash" height="400px" width="730px" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=wcs_america" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=wcs_america&auto_play=true&start_volume=25" /></object>
-				<br>
-				<iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=wagamamatv&amp;popout_chat=true" height="310" width="730"></iframe>
-				
-			</div>
-
-		</div>
-	</div>
-	    
-<!--Footer-->
-<div id="footer">
-	Copyright &copy; 2013, streamverse.tv - Dota 2 Copyright &copy;, Valve</div> 
-
+   <head>
+      <title>Gaming Streams!</title>
+      <link href="home.css" rel="stylesheet" type="text/css">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script type="test/javascript"> function getStreamListInfo(streamPlayerList){
+         $.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + streamPlayerList + "&jsonp=?", function(data){
+         for(var i=0;i<data.length;i++){
+         	$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+         	}
+         });
+      </script>
+   </head>
+   <body>
+      <a href="index.html"><img src="logo.png" id="banner"></a>
+      <!--Menu Bar-->
+      <div id="content">
+         <ul id="menuBar">
+            <li> <a class="wow">World of Warcraft</a></li>
+            <li> <a class="dota2">Dota 2</a></li>
+            <li> <a class="sc2">Starcraft 2</a></li>
+            <li> <a class="lol">League of Legends</a></li>
+         </ul>
+      </div>
+      <div id="wrapper">
+         <div id="playerListWrapper">
+            <ul class="test">
+               <li class="catagory">  STREAMS</li>
+               <script type="text/javascript">
+                  $(document).ready(function(){
+                  		$(".wow").click(function(){
+                  			$(".streamer_name").remove();
+                  			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=xaryulol,Bajheera,Gamebreakertv,Swifty&jsonp=?", function(data){
+                  			for(var i=0;i<data.length;i++){
+                  				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+                  				}
+                  			});
+                  		
+                  		});
+                  
+                  		$(".dota2").click(function(){
+                  			$(".streamer_name").remove();
+                  			$.getJSON("http://api.justin.tv/api/stream/list.json?channel=liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames&jsonp=?", function(data){
+                  			for(var i=0;i<data.length;i++){
+                  				$(".test").append('<li class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
+                  				}
+                  			});
+                  		
+                  		});
+                  	});
+               </script>
+            </ul>
+         </div>
+         <div id="streamWrapper">
+            <br>
+            <h1 align="center">BeyondtheSummit</h1>
+            <object id = "streamplayer" type="application/x-shockwave-flash" height="400px" width="680px" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=wcs_america" bgcolor="#000000">
+               <param name="allowFullScreen" value="true" />
+               <param name="allowScriptAccess" value="always" />
+               <param name="allowNetworking" value="all" />
+               <param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" />
+               <param name="flashvars" value="hostname=www.twitch.tv&channel=wcs_america&auto_play=true&start_volume=25" />
+            </object>
+            <br>
+         </div>
+         <div id="chatboxWrapper">
+            <iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=wagamamatv&amp;popout_chat=true" height="698" width="300"></iframe>
+         </div>
+      </div>
+      </div>
+      <!--Footer-->
+      <div id="footer">
+         Copyright &copy; 2013, streamverse.tv - Dota 2 Copyright &copy;, Valve
+      </div>
 </html>
-
