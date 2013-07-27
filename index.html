@@ -23,8 +23,9 @@
          }
          /*========================== Functions End =========================*/
          
-         /*Menu bar click events*/
+         
          $(document).ready(function(){
+         	/*Menu bar click events*/
          	$(".wow").click(function(){
             	getStreamList(wowList);
          	});
@@ -38,27 +39,21 @@
                 getStreamList(lolList);
          	});
          	
-
+         	/*Updates stream & chat of the player that was clicked on*/
          	$( ".streamList").click(function(evt){
+         	  /*Gets the players name from id of clicked button*/
 			  var clicked = evt.target;
 			  var currentID = clicked.id || "No ID!";
 			  if(currentID!="No ID!"){
-			  	$("#streamWrapper").empty();
-			  	$("#streamWrapper").append('<br><h1 align="center">' + currentID + '</h1>');
-
-			  	
-			  	var frame = document.getElementsbyTag("iframe");
-				
-				var src = "http://twitch.tv/chat/embed?channel=" + currentID + "&amp;popout_chat=true";
-
-				var iframe = $('iframe');
-
- 				$(iframe).attr('src', src)
-
-			  	$("#chatboxWrapper".append('<iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=' + currentID + '&amp;popout_chat=true" height="698" width="300"></iframe>'));
-
-
-
+			  	/*Updates stream*/
+			  	$("#streamWrapper").empty();  //deletes all elements in wrapper
+			  	$("#streamWrapper").append('<br><h1 align="center">' + currentID + '</h1>');			  	
+			  	$("#streamWrapper").append('<object id="streamPlayer" type="application/x-shockwave-flash" height="378" width="680" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=' + currentID + '" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=' + currentID + '&auto_play=true&start_volume=25" /></object>');
+			  	document.getElementById('streamPlayer').src = document.getElementById('streamPlayer').src; //refreshes the stream player
+			  	/*Updates chatbox*/			
+				$('iframe').remove();  //removes previous chatbox
+				$("#chatboxWrapper").append('<iframe id="chatbox" frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=' + currentID + '&amp;popout_chat=true" height="698" width="300"></iframe>');
+				document.getElementById('chatbox').src = document.getElementById('chatbox').src; //refreshes the chatbox
 			  }
 			})
          });
@@ -70,10 +65,10 @@
       <!--Menu Bar-->
       <div id="content">
          <ul id="menuBar">
-            <li> <a class="wow">World of Warcraft</a></li>
-            <li> <a class="dota2">Dota 2</a></li>
-            <li> <a class="sc2">Starcraft 2</a></li>
             <li> <a class="lol">League of Legends</a></li>
+            <li> <a class="sc2">Starcraft 2</a></li>
+            <li> <a class="dota2">Dota 2</a></li>
+            <li> <a class="wow">World of Warcraft</a></li>        
          </ul>
       </div>
       <div id="wrapper">
@@ -82,18 +77,15 @@
                <li class="catagory">  STREAMS</li>
             </ul>
          </div>
-         <div id="streamWrapper">
-            <br>
-            <h1 align="center">BeyondtheSummit</h1>
-            
+         <div id="streamWrapper">            
          </div>
          <div id="chatboxWrapper">
-            <iframe frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=wagamamatv&amp;popout_chat=true" height="698" width="300"></iframe>
+            <iframe id="chatbox" frameborder="0" scrolling="no" id="chatbox" src="http://twitch.tv/chat/embed?channel=wagamamatv&amp;popout_chat=true" height="698" width="300"></iframe>
          </div>
       </div>
       </div>
       <!--Footer-->
       <div id="footer">
-         Copyright &copy; 2013, streamverse.tv - Dota 2 Copyright &copy;, Valve
+         Copyright &copy; 2013, Streamverse.tv -   &copy; Valve,  &copy; Blizzard Entertainment,  &copy; Riot Games.
       </div>
 </html>
