@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+</style>	
+
+<script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
+</head>	
+</head>
+
+<body>
+<h1>Contact us</h1>
+<form method="POST" name="contactform" action="contactPHP.php"> 
+<p>
+<label for='name'>Your Name:</label> <br>
+<input type="text" name="name">
+</p>
+<p>
+<label for='email'>Email Address:</label> <br>
+<input type="text" name="email"> <br>
+</p>
+<p>
+<label for='message'>Message:</label> <br>
+<textarea rows="10" cols="40" name="message"></textarea>
+</p>
+<input type="submit" value="Submit"><br>
+</form>
+
+<script language="JavaScript">
+
+<!-- Validator -->
+var frmvalidator  = new Validator("contactform");
+frmvalidator.addValidation("name","req","Please provide your name"); 
+frmvalidator.addValidation("email","req","Please provide your email"); 
+frmvalidator.addValidation("email","email","Please enter a valid email address"); 
+</script>
+
+</body>
+</html>

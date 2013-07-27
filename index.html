@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Gaming Streams!</title>
+      <title>Streamverse</title>
+      <link rel="shortcut icon" href="/smalllogo.jpg" type="image/x-icon" />
+
       <link href="home.css" rel="stylesheet" type="text/css">
+      <meta name="Description" content="Streamverse.tv is a stream hub for modern strategy and role playing style games such as League of Legends, Starcraft 2, World of Warcraft, and Dota 2. We provide our viewers with a clutter-free and efficient way to follow their favorite gamers across different platforms.  Premium e-Sport streams for fans and gamers all in one place." />
+      <meta name="keywords" content="streanverse, starcraft stream, starcraft2 stream,,starcraft 2 stream,,dota 2 stream, lol stream, league stream, wow stream, world of warcraft stream, arena stream, watch, stream, streams, video, videos, live stream, live streams, live video, live videos, pro-gamer, progaming, MLG, GSL,eg, razer, twitch, tournament, gaming, games, gamer, ownage, frag, social, defense of the ancients, league of legends, ranked queu, solo queu" />
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
       <script type="text/javascript">
 
       	 /*====================== Streamer List ==========================*/
-         var wowList = "liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,Reckful,tsm_dyrus,behkuhtv,wcs_america,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames";
-         var dota2List = "";
-         var sc2List = "";
-         var lolList = "";
+    	 var wowList = "Reckful,Woundman,xaryulol,VanguardsTV,Swifty,";
+         var dota2List = "liquidixmike88,BeyondTheSummit,starladder1,SoloLineAbuse,Bdiz,DotaCinema,TobiWanDOTA,ArenaGamingTv_Dota2,blitzdota,cyborgmatt";
+         var sc2List = "wcs_america,esltv_sc2,Nathanias,TeSLLive,Sc2tv_ru,destiny,Painuser,dreamhacksc2,idrajit,demuslim,eghuk";
+         var lolList = "tsm_dyrus,behkuhtv,trick2g,painkami,chaoxlol,voyboy,ocelote,riotgames,destiny,PhantomL0rd,asiagodtonegg3be0,Meteos,Crs_saintvicious,iGamersTV,yeeTz,itsHafu,MYM_ALKAPONE,DisStream";
+         
          /*========================== Functions ==========================*/
          /*Function retrieves json object from the players currently live streaming and displays on playerList.*/
          function getStreamList(streamPlayerList){         	
            	$(".streamer_name").remove();
          	$.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + streamPlayerList + "&jsonp=?", function(data){
+         	data.sort(function(a,b){return b.channel_count-a.channel_count;}); //sort list of streams by viewers
          	for(var i=0;i<data.length;i++){
          	$(".streamList").append('<li id="' + data[i].channel.login + '"" class="streamer_name"> <img id="small_img" src="' + data[i].channel.image_url_small + '">' + data[i].channel.login + '<br/>' + data[i].channel_count + '</li>');
          		}
          	});
          }
+        
          /*========================== Functions End =========================*/
          
          
          $(document).ready(function(){
+         	
          	/*Menu bar click events*/
          	$(".wow").click(function(){
             	getStreamList(wowList);
@@ -42,13 +50,21 @@
          	/*Updates stream & chat of the player that was clicked on*/
          	$( ".streamList").click(function(evt){
          	  /*Gets the players name from id of clicked button*/
+         	  var currentViewCount=0;
 			  var clicked = evt.target;
 			  var currentID = clicked.id || "No ID!";
 			  if(currentID!="No ID!"){
+
+			  	$.getJSON("http://api.justin.tv/api/stream/list.json?channel=" + currentID + "&jsonp=?", function(data){
+			  		currentViewCount = data[0].channel_count;
+			  	});
+
+
 			  	/*Updates stream*/
-			  	$("#streamWrapper").empty();  //deletes all elements in wrapper
-			  	$("#streamWrapper").append('<br><h1 align="center">' + currentID + '</h1>');			  	
+			  	$("#streamWrapper").empty();  //deletes all elements in wrapper			  			  	
 			  	$("#streamWrapper").append('<object id="streamPlayer" type="application/x-shockwave-flash" height="378" width="680" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=' + currentID + '" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=' + currentID + '&auto_play=true&start_volume=25" /></object>');
+			  	$("#streamWrapper").append('<h1 class="streamerText">' + currentID + '<span style="float:right; color:red; font-size:12px;">Live: ' + currentViewCount + '</span></h1>');	
+
 			  	document.getElementById('streamPlayer').src = document.getElementById('streamPlayer').src; //refreshes the stream player
 			  	/*Updates chatbox*/			
 				$('iframe').remove();  //removes previous chatbox
@@ -85,6 +101,7 @@
       </div>
       <!--Footer-->
       <div id="footer">
-         Copyright &copy; 2013, Streamverse.tv -   &copy; Valve,  &copy; Blizzard Entertainment,  &copy; Riot Games.
+         Copyright &copy; 2013, <a class="companies" href="index.html">Streamverse.tv</a> -   &copy; <a class="companies" href="http://store.steampowered.com/">Valve</a>,  &copy; <a class="companies" href="http://www.blizzard.com">Blizzard Entertainment</a>,  &copy; <a class="companies" href="http://www.riotgames.com/">Riot Games</a>, &copy; <a class="companies" href="http://www.twitch.tv/">Twitch.tv</a>.
+         <a href="http://streamverse.tv/contact.html" onclick="javascript:void window.open('http://streamverse.tv/contact.html','1374920253067','width=500,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Contact Us</a>
       </div>
 </html>
