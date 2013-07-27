@@ -1,8 +1,8 @@
 Streamverse
 ===========
 
-Video game streaming website. 
-All popular streams gathered into one place.
+Video game streaming website. <br>
+All popular streams gathered into one place. <br>
 Uses twitch.tv api to collect streamer's information and presents it in an organized way.
 
 Uses
@@ -11,7 +11,7 @@ html/css/jquery/ajax
 
 Creators
 =========
-Triet Nguyen
+Triet Nguyen <br>
 Kory Le
 
 Things needed to implement
