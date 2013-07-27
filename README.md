@@ -9,8 +9,12 @@ Uses
 =====
 html/css/jquery/ajax
 
-
 Creators
 =========
 Triet Nguyen
 Kory Le
+
+Things needed to implement
+==========================
+-Buttons refresh stream and chat
+-contacts page
