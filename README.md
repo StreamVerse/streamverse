@@ -16,5 +16,8 @@ Kory Le
 
 Things needed to implement
 ==========================
--Buttons refresh stream and chat
+-Buttons refresh stream and chat. DONE
+<br>
 -contacts page
+<br>
+-Implement a feature menu
