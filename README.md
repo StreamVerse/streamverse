@@ -18,6 +18,8 @@ Things needed to implement
 ==========================
 -Buttons refresh stream and chat. DONE
 <br>
--contacts page
+-Contacts page. DONE
 <br>
 -Implement a feature menu
+<br>
+-Change color scheme
