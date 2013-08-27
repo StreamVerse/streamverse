@@ -20,6 +20,8 @@ Things needed to implement
 <br>
 -Contacts page. DONE
 <br>
--Implement a feature menu
+-Implement a feature menu. DONE
 <br>
--Change color scheme
+-Change color scheme. DONE
+<br>
+-Add more text to page for search engines
