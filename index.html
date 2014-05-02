@@ -1,96 +1,124 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>LoL, Dota 2, Sc2, Wow pro-gaming stream!</title>
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+<head>
+    <title>Streamverse</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="ButtonControl.js"></script>
+    <script src="ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rationale">
+    <link href='http://fonts.googleapis.com/css?family=Bowlby+One&effect=fire-animation' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
 
 
-      <link href="home.css" rel="stylesheet" type="text/css">
-      <meta name="Description" content="Streamverse.tv is a stream hub for modern strategy and role playing style games such as League of Legends, Starcraft 2, World of Warcraft, and Dota 2. We provide our viewers with a clutter-free and efficient way to follow their favorite gamers across different platforms.  Premium e-Sport streams for fans and gamers all in one place." />
-     
 
-     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-     <script src="ButtonControl.js"></script>
-      <script>
-          /*==== Google analytic ====*/
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-42773903-1', 'streamverse.tv');
-		  ga('send', 'pageview');
-	  </script>
-      
-      
-   </head>
-   <body>
-   <div id="contentWrapper">
-	   <div id="bannerWrapper">
-	      <a href="index.html"><img src="logo.jpg" id="banner"></a>
-	   </div>
-		      <!--Menu Bar-->
-       <div id="content">
-          <ul id="menuBar">
-            <li> <a class="lol">League of Legends</a></li>
-            <li> <a class="sc2">Starcraft 2 </a></li>
-            <li> <a class="dota2">Dota 2</a></li>
-            <li> <a class="wow">World of Warcraft</a></li>        
-       </ul>
-  		</div>
-      </div>
-      <div id="featureWrapper">
-      	<div class="featureBlock" id="b1">
-      		<span id="block1" class="bl1"></span>
-      		<div class="thumbcontent">
 
-      		</div> <!--- thumbcontent end -->
-      	</div> <!--- featureBlock end -->
-      	<div class="divider"></div>
-      	<div class="featureBlock" id="b2">
-      		<span id="block1" class="bl2"></span>
-      		<div class="thumbcontent">
 
-      		</div> <!--- thumbcontent end -->
-      	</div> <!--- featureBlock end -->
-      	<div class="divider"></div>
-      	<div class="featureBlock" id="b3">
-      		<span id="block1" class="bl3"></span>
-      		<div class="thumbcontent">
-
-      		</div> <!--- thumbcontent end -->
-      	</div> <!--- featureBlock end -->
-      	<div class="divider"></div>
-      	<div class="featureBlock" id="b4">
-      		<span id="block1" class="bl4"></span>
-      		<div class="thumbcontent">
-
-      		</div> <!--- thumbcontent end -->
-      	</div> <!--- featureBlock end -->
-      	<div class="divider"></div>
-      	<div class="featureBlock" id="b5">
-      		<span id="block1" class="bl5"></span>
-      		<div class="thumbcontent">
-
-      		</div> <!--- thumbcontent end -->
-      	</div> <!--- featureBlock end -->
-      </div> <!-- featureWrapper end-->
-      <div id="wrapper">
-         <div id="playerListWrapper">
-            <ul class="streamList">
-               <li class="catagory"></li>
+    <div id="topmenuWrapper">
+        <div id="contentWrapper">
+            <span id="logo"><img  src="img/logo.png"/></span>
+            <ul id="menubar">
+                <img id='gameicon' src='img/lol.ico'><li><a class="lol">League of Legends</a></li>
+                <img id='gameicon' src='img/sc2.ico'><li><a class="sc2">Starcraft 2 </a></li>
+                <img id='gameicon' src='img/dota.ico'><li><a class="dota2">Dota 2</a></li>
+                <img id='gameicon' src='img/wow.ico'><li><a class="wow">World of Warcraft</a></li>
+                <img id='gameicon' src='img/hearthstone.ico'><li><a class="hearthstone">Hearthstone</a></li>
             </ul>
-         </div>
-         <div id="streamWrapper">      
-         </div>
-         <div id="chatboxWrapper">
-         </div>
-      </div>
-      </div>
-      <!--Footer-->
-      
-      <div id="footer">
-         Copyright &copy; 2013, <a class="companies" href="index.html">Streamverse.tv</a> -   &copy; <a class="companies" href="http://store.steampowered.com/">Valve</a>,  &copy; <a class="companies" href="http://www.blizzard.com">Blizzard Entertainment</a>,  &copy; <a class="companies" href="http://www.riotgames.com/">Riot Games</a>, &copy; <a class="companies" href="http://www.twitch.tv/">Twitch.tv</a>.
-         <a href="http://streamverse.tv/contact.html" onclick="javascript:void window.open('http://streamverse.tv/contact.html','1374920253067','width=500,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Contact Us</a>
-      </div>
+
+            <div class="searchbar">
+                <label for="searchinput">Search </label>
+                <input id="searchinput" />
+
+            </div>
+            <a href="https://www.facebook.com/streamverse">
+                <img id="fbicon" src="img/facebookicon.png" /></a>
+            <div class="fb-like" data-href="https://www.facebook.com/streamverse" data-width="450" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+
+        </div>
+        <!--contentWrapper END -->
+        <div id="togglechat">Toggle Chat</div>
+    </div>
+    <!--topmenuWrapper END -->
+
+    <div id="draggablecontainer">
+        <div id="streamWrapper">
+        </div>
+
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">STREAMS</a></li>
+                <li><a href="#tabs-2">NEWS</a></li>
+                <li><a href="#tabs-3">COMMENTS</a></li>
+            </ul>
+            <div id="tabs-1">
+            	<span class="tabtitle">Live Streams</span>
+                <ul class="tabcontent" id="streamlist"></ul>            
+            </div>
+            <div id="tabs-2">
+                <!--Facebook posts -->
+
+                <div id="fb-root"></div>
+    
+                <div class="fb-post" data-href="https://www.facebook.com/streamverse/posts/169845139888390" data-width="550">
+                    <div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/streamverse/posts/169845139888390">Post</a> by <a href="https://www.facebook.com/streamverse">streamverse.tv</a>.</div>
+                </div>
+                <br>
+                
+               
+                <div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=153012148238356&amp;set=a.153012144905023.1073741828.150577561815148&amp;type=1" data-width="550">
+                    <div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/photo.php?fbid=153012148238356&amp;set=a.153012144905023.1073741828.150577561815148&amp;type=1">Post</a> by <a href="https://www.facebook.com/streamverse">streamverse.tv</a>.</div>
+                </div>
+                <!--Facebook posts END -->
+            </div>
+            <div id="tabs-3">
+                <div class="tabcontent" id="fbcomments">
+                
+                	<script>
+						FB.XFBML.parse();
+						(function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) return;
+						js = d.createElement(s); js.id = id;
+						js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+						fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+					<span class="tabtitle">Comments</span>
+
+					<!--<div class="fb-comments" data-href="http://www.twitch.tv/asiagodtonegg3be0" data-numposts="5"></div> -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!--Footer-->
+
+</body>
+
+
+
 </html>
+
+<script>
+
+    /*======Toggle Chat======*/
+    $("#togglechat").click(function () {
+        $("#chatbox").toggle("fold", 1000);
+    });
+
+    /*========Navigation=========*/
+    //Selecting an option in the menu will stay highlighted
+    $("#menubar li").click(function () {
+        $("#menubar li").removeClass("activeClick");
+        $(this).addClass("activeClick");
+    });
+</script>
